@@ -146,6 +146,12 @@ nav.scrolled .logo {
     color: var(--primary);
 }
 
+#menu-toggle:checked ~ .logo {
+    color: var(--white);
+    z-index: 1100;
+    position: relative;
+}
+
 .nav-links {
     display: flex;
     gap: 30px;
@@ -182,6 +188,11 @@ nav.scrolled .menu-icon {
     color: var(--primary);
 }
 
+#menu-toggle:checked ~ .menu-icon {
+    color: var(--white);
+    z-index: 1100;
+}
+
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
     .menu-icon {
@@ -200,7 +211,7 @@ nav.scrolled .menu-icon {
         justify-content: center;
         gap: 40px;
         transition: 0.5s ease;
-        z-index: 1000;
+        z-index: 1050;
     }
 
     .nav-links li {
@@ -211,14 +222,19 @@ nav.scrolled .menu-icon {
         font-size: 1.5rem;
         color: var(--white);
     }
+    
+    nav.scrolled .nav-links a {
+        color: var(--white);
+    }
 
     /* Menu Toggle Logic */
-    #menu-toggle:checked ~ .nav-links {
+    #menu-toggle:checked~.nav-links {
         right: 0;
     }
 
-    #menu-toggle:checked ~ .menu-icon i::before {
-        content: "\f00d"; /* FontAwesome Close Icon */
+    #menu-toggle:checked~.menu-icon i::before {
+        content: "\f00d";
+        /* FontAwesome Close Icon */
     }
 }
 

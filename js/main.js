@@ -9,6 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Mobile Menu Toggle Scroll Lock
+    const menuToggle = document.getElementById('menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('change', () => {
+            if (menuToggle.checked) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
     // Intersection Observer for Fade-in Animations
     const faders = document.querySelectorAll('.fade-in');
     const appearOptions = {
@@ -73,7 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetElement) {
                 // Close mobile menu if open
                 const menuToggle = document.getElementById('menu-toggle');
-                if (menuToggle) menuToggle.checked = false;
+                if (menuToggle) {
+                    menuToggle.checked = false;
+                    document.body.style.overflow = '';
+                }
 
                 const navHeight = document.querySelector('nav').offsetHeight;
                 const elementPosition = targetElement.getBoundingClientRect().top;
